@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import TextField from '@mui/material/TextField';
 import { Button, Stack } from '@mui/material';
+import { useNavigate } from 'react-router-dom';
 
 const Login: React.FC = () => {
+    const navigate = useNavigate()
     const [formData, setFormData] = useState({
         username: '',
         phoneNumber: '',
@@ -15,6 +17,7 @@ const Login: React.FC = () => {
             return;
         }
         localStorage.setItem('formData', JSON.stringify(formData));
+        navigate('/data')
     };
 
     const validateFormData = () => {
